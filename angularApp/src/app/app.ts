@@ -15,7 +15,14 @@ export class App {
 
   ngAfterViewInit() {
     (this.likeBtn.nativeElement as any).onLikeChange = (value: boolean, count: number) => {
-      console.log('likeChanged @angular compoent', value, count);
+      console.log(
+        `%c🅰️ likeChanged%c @angular component %c${value}%c, count: %c${count}`,
+        'color: #dd0031; font-weight: bold;',     // Angular red
+        'color: gray;',
+        'color: orange; font-weight: bold;',
+        'color: gray;',
+        'color: teal; font-weight: bold;'
+      );
     }
   }
 }

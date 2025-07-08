@@ -11,7 +11,7 @@ type NullableString = string | null;
 export const defineLikeButton = () => {
     class MyElement extends HTMLElement {
         static get observedAttributes(): string[] {
-            return ['initialLiked', 'likeCount', 'onLikeChange'];
+            return ['initialLiked', 'likeCount'];
         }
 
         shadow: ShadowRoot;
@@ -27,6 +27,10 @@ export const defineLikeButton = () => {
             this.props.onLikeChange = fn;
             this.render();
         }
+
+        // get onLikeChange() {
+        //     return this.props.onLikeChange;
+        // }
 
         connectedCallback(): void {
             const style = document.createElement('style');

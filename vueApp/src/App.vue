@@ -12,7 +12,14 @@ const changeSrc = () => {
 }
 
 const likeChanged = (value: boolean, counter: number) => {
-  console.log('likeChanged @vue compoent ', value, counter);
+  console.log(
+      `%c💚 likeChanged%c @vue component %c${value}%c, counter: %c${counter}`,
+      'color: green; font-weight: bold;',
+      'color: gray;',
+      'color: orange; font-weight: bold;',
+      'color: gray;',
+      'color: blue; font-weight: bold;'
+  );
 }
 
 </script>

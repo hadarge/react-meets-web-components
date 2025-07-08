@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && npm run serve",
+    "watch": "npx chokidar-cli 'src/**/*' --initial --ignore 'dist/**' -c 'npm run build'",
     "lint": "eslint .",
     "preview": "vite preview",
-    "serve" : "cd dist && npx http-server --cors -c-1"
+    "serve" : "cd dist && npx http-server --cors --gzip -c-1"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",

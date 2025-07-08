@@ -6,28 +6,26 @@ export interface LikeButton extends HTMLElement {
     onLikeChange: (liked: boolean, newCount: number) => void;
 }
 
+type NullableString = string | null;
+
 export const defineLikeButton = () => {
     class MyElement extends HTMLElement {
         static get observedAttributes(): string[] {
             return ['initialLiked', 'likeCount', 'onLikeChange'];
         }
 
-        private shadow: ShadowRoot;
-        private root: Root | null = null;
-        private props: Record<string, any> = {};
+        shadow: ShadowRoot;
+        root?: Root;
+        props: Record<string, any> = {};
 
         constructor() {
             super();
             this.shadow = this.attachShadow({mode: 'open'});
         }
 
-        set onLikeChange(fn: (() => void) | null) {
+        set onLikeChange(fn: LikeButton['onLikeChange']) {
             this.props.onLikeChange = fn;
             this.render();
-        }
-
-        get onLikeChange(): (() => void) | null {
-            return this.props.onLikeChange;
         }
 
         connectedCallback(): void {
@@ -36,10 +34,7 @@ export const defineLikeButton = () => {
             this.shadow.appendChild(style);
 
             MyElement.observedAttributes.forEach(attr => {
-                const val = this.getAttribute(attr);
-                if (val !== null)
-                    this.props[attr] = val;
-
+                this.props[attr] = this.getAttribute(attr);
                 if (attr === 'likeCount') {
                     this.props[attr] = Number.parseInt(this.props[attr]);
                 }
@@ -48,14 +43,12 @@ export const defineLikeButton = () => {
             this.render();
         }
 
-        attributeChangedCallback(attrName: string, oldVal: string | null, newVal: string | null): void {
-            if (oldVal !== newVal) {
-                this.props[attrName] = newVal;
-                this.render();
-            }
+        attributeChangedCallback(attrName: string, _: NullableString, newVal: NullableString): void {
+            this.props[attrName] = newVal;
+            this.render();
         }
 
-        private render(): void {
+        render(): void {
             if (!this.root) {
                 this.root = createRoot(this.shadow);
             }

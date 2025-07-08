@@ -9,16 +9,26 @@
 <body>
 <div id="root"></div>
 <script type="module" src="/src/wcMain.ts"></script>
+<!--<a href="./src/wcMain.ts">🔗 wcMain.ts</a>-->
+
+<style>
+    p {
+        background: lightskyblue;
+    }
+</style>
+
+<p>Our custom elements</p>
 
 <my-element></my-element>
-<my-element-2 name="Hadar"></my-element-2>
-<my-element-3 id="myElement" name="Mosh"></my-element-3>
-<!--<my-element-3 name="Mosh"></my-element-3>-->
+<my-element name="Hadar"></my-element>
+<my-element id="myElement" name="Mosh"></my-element>
 
 <like-button id="likeButton" likeCount="20"></like-button>
 
-<video-player id="player1" width="550" height="400" src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video-player>
-<!--<video-player id="player2"  width="550" height="400"  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"></video-player>-->
+<video-player id="player1" width="550" height="400"
+              src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></video-player>
+<video-player id="player2" width="550" height="400"
+              src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"></video-player>
 
 </body>
 </html>

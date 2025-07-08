@@ -1,6 +1,7 @@
 import {createRoot, type Root} from 'react-dom/client';
 import indexCss from '../index.css?inline';
 import {VideoPlayer} from "../components/VideoPlayer.tsx";
+//import ReactDOMServer from "react-dom/server";
 
 export interface VideoPlayer extends HTMLElement {
     src: string;
@@ -64,6 +65,14 @@ export const defineVideoPlayer = () => {
         private render(): void {
             if (!this.root) {
                 this.root = createRoot(this.shadow);
+                //
+                // debugger;
+                // const dataProps = this.getAttribute('data-props');
+                // if(dataProps){
+                //     const props = JSON.parse(dataProps)
+                //     hydrateRoot(this, <VideoPlayer {...props} />)
+                //     return;
+                // }
             }
 
             this.root.render(<VideoPlayer src={this.props.src} {...this.props}/>);
@@ -74,3 +83,7 @@ export const defineVideoPlayer = () => {
         customElements.define('video-player', MyElement);
     }
 };
+
+// export const renderVideoPlayerHTML = (props: any) => {
+//     return ReactDOMServer.renderToString(<VideoPlayer {...props} />)
+// }

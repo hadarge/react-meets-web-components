@@ -1,6 +1,6 @@
 import {createRoot, type Root} from 'react-dom/client';
 import indexCss from '../index.css?inline';
-import {LikeButton} from "../components/LikeButton.tsx";
+import {LikeButton as LikeButtonComponent} from "../components/LikeButton.tsx";
 
 export interface LikeButton extends HTMLElement {
     onLikeChange: (liked: boolean, newCount: number) => void;
@@ -53,7 +53,7 @@ export const defineLikeButton = () => {
                 this.root = createRoot(this.shadow);
             }
 
-            this.root.render(<LikeButton {...this.props}/>);
+            this.root.render(<LikeButtonComponent {...this.props}/>);
         }
     }
 

@@ -20,13 +20,36 @@ function App() {
                     poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg"
                     width={500}
                     height={350}
+                    onPlay={() => {
+                        console.log(
+                            `%c▶️️ onPlay%c @react component`,
+                            'color: #61dafb; font-weight: bold;',
+                            'color: gray;'
+                        );
+                    }}
+
+                    onPause={() => {
+                        console.log(
+                            `%c⏸️️ onPause%c @react component`,
+                            'color: #61dafb; font-weight: bold;',
+                            'color: gray;'
+                        );
+                    }}
                 />
 
                 <div className="mt-[20px]">
                     <LikeButton
                         initialLiked={false}
                         likeCount={42}
-                        onLikeChange={() => {
+                        onLikeChange={(value: boolean, count: number) => {
+                            console.log(
+                                `%c⚛️ likeChanged%c @react component %c${value}%c, count: %c${count}`,
+                                'color: #61dafb; font-weight: bold;',
+                                'color: gray;',
+                                'color: orange; font-weight: bold;',
+                                'color: gray;',
+                                'color: teal; font-weight: bold;'
+                            );
                         }}
                     />
                 </div>

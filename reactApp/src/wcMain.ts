@@ -9,11 +9,11 @@ defineComponent1();
 //     console.log('customOnClick ', times);
 // }
 //
-import {defineLikeButton} from "./webcomponents/defineLikeButton.tsx";
-import {defineVideoPlayer} from "./webcomponents/defineVideoPlayer.tsx";
-
-defineLikeButton();
-defineVideoPlayer();
+// import {defineLikeButton} from "./webcomponents/defineLikeButton.tsx";
+// import {defineVideoPlayer} from "./webcomponents/defineVideoPlayer.tsx";
+//
+// defineLikeButton();
+// defineVideoPlayer();
 //
 //
 // import type {LikeButton} from "./webcomponents/defineLikeButton.tsx";

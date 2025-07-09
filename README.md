@@ -49,13 +49,14 @@ This repo demonstrates real-world patterns for exposing  **React Components** as
    npm run dev
    ```
 Or 
+
 4. **Start the angular app:**
    ```bash
    cd angularApp
    npm run start
    ```
 
-5**Open in browser:**  
+5. **Open in browser:**  
 - Navigate to [The React App](http://localhost:2222)
 - Navigate to [The Vue App](http://localhost:3333)
 - Navigate to [The Angular App](http://localhost:4200)

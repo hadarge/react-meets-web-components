@@ -12,7 +12,6 @@ export class MyElement extends HTMLElement {
     root: ShadowRoot | HTMLElement = this;
     name: NullableString = null;
     clickCount = 0;
-
     _onClick?: ((times: number) => void);
 
     constructor() {

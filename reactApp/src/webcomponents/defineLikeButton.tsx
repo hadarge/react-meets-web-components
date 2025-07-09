@@ -28,10 +28,6 @@ export const defineLikeButton = () => {
             this.render();
         }
 
-        // get onLikeChange() {
-        //     return this.props.onLikeChange;
-        // }
-
         connectedCallback(): void {
             const style = document.createElement('style');
             style.textContent = indexCss;

@@ -22,6 +22,24 @@ const likeChanged = (value: boolean, counter: number) => {
   );
 }
 
+
+const onPlay = () => {
+  console.log(
+      `%c▶️️ onPlay%c @vue component`,
+      'color: green; font-weight: bold;',
+      'color: gray;'
+  );
+}
+
+const onPause = () => {
+  console.log(
+      `%c⏸️️ onPause%c @vue component`,
+      'color: green; font-weight: bold;',
+      'color: gray;'
+  );
+}
+
+
 </script>
 
 <template>
@@ -36,7 +54,10 @@ const likeChanged = (value: boolean, counter: number) => {
   <HelloWorld msg="Vite + Vue"/>
 
   <video-player width="550" height="400"
+                :onPlay.prop="onPlay"
+                :onPause.prop="onPause"
                 :src="currentLink"></video-player>
+
   <like-button likeCount="88" :onLikeChange.prop="likeChanged"></like-button>
 
   <button :onclick="changeSrc">switch</button>

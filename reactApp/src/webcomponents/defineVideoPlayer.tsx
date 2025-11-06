@@ -43,12 +43,17 @@ export const defineVideoPlayer = () => {
             this.shadow.appendChild(style);
 
             MyElement.observedAttributes.forEach(attr => {
-                const val = this.getAttribute(attr);
-                if (val !== null)
-                    this.props[attr] = val;
-
-                if (attr === 'width' || attr === 'height') {
-                    this.props[attr] = Number.parseInt(this.props[attr]);
+                const attrValue = this.getAttribute(attr);
+                if (attrValue !== null) {
+                    if (attr === 'width' || attr === 'height') {
+                        const numValue = Number.parseInt(attrValue, 10);
+                        // Defensive: only set if it's a valid number
+                        if (!isNaN(numValue)) {
+                            this.props[attr] = numValue;
+                        }
+                    } else {
+                        this.props[attr] = attrValue;
+                    }
                 }
             });
 
@@ -56,9 +61,28 @@ export const defineVideoPlayer = () => {
         }
 
         attributeChangedCallback(attrName: string, oldVal: string | null, newVal: string | null): void {
-            if (oldVal !== newVal) {
-                this.props[attrName] = newVal;
-                this.render();
+            // Skip if value hasn't actually changed
+            if (oldVal === newVal) {
+                return;
+            }
+
+            if (newVal === null) {
+                return;
+            }
+
+            if (attrName === 'width' || attrName === 'height') {
+                const numValue = Number.parseInt(newVal, 10);
+                // Defensive: only update if it's a valid number and different from current value
+                if (!isNaN(numValue) && this.props[attrName] !== numValue) {
+                    this.props[attrName] = numValue;
+                    this.render();
+                }
+            } else {
+                // Only update if value is different
+                if (this.props[attrName] !== newVal) {
+                    this.props[attrName] = newVal;
+                    this.render();
+                }
             }
         }
 

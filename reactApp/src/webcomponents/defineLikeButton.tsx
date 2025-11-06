@@ -4,6 +4,7 @@ import {LikeButton as LikeButtonComponent} from "../components/LikeButton.tsx";
 
 export interface LikeButton extends HTMLElement {
     onLikeChange: (liked: boolean, newCount: number) => void;
+    likeCount: number
 }
 
 type NullableString = string | null;
@@ -28,24 +29,58 @@ export const defineLikeButton = () => {
             this.render();
         }
 
+        set likeCount(n: LikeButton['likeCount']) {
+            this.props.likeCount = n;
+            this.render();
+        }
+
         connectedCallback(): void {
             const style = document.createElement('style');
             style.textContent = indexCss;
             this.shadow.appendChild(style);
 
             MyElement.observedAttributes.forEach(attr => {
-                this.props[attr] = this.getAttribute(attr);
-                if (attr === 'likeCount') {
-                    this.props[attr] = Number.parseInt(this.props[attr]);
+                const attrValue = this.getAttribute(attr);
+                if (attrValue !== null) {
+                    if (attr === 'likeCount') {
+                        const numValue = Number.parseInt(attrValue, 10);
+                        // Defensive: only set if it's a valid number
+                        if (!isNaN(numValue)) {
+                            this.props[attr] = numValue;
+                        }
+                    } else {
+                        this.props[attr] = attrValue;
+                    }
                 }
             });
 
             this.render();
         }
 
-        attributeChangedCallback(attrName: string, _: NullableString, newVal: NullableString): void {
-            this.props[attrName] = newVal;
-            this.render();
+        attributeChangedCallback(attrName: string, oldVal: NullableString, newVal: NullableString): void {
+            // Skip if value hasn't actually changed
+            if (oldVal === newVal) {
+                return;
+            }
+
+            if (newVal === null) {
+                return;
+            }
+
+            if (attrName === 'likeCount') {
+                const numValue = Number.parseInt(newVal, 10);
+                // Defensive: only update if it's a valid number and different from current value
+                if (!isNaN(numValue) && this.props[attrName] !== numValue) {
+                    this.props[attrName] = numValue;
+                    this.render();
+                }
+            } else {
+                // Only update if value is different
+                if (this.props[attrName] !== newVal) {
+                    this.props[attrName] = newVal;
+                    this.render();
+                }
+            }
         }
 
         render(): void {

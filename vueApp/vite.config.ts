@@ -6,7 +6,13 @@ export default defineConfig({
     plugins: [vue({
         template: {
             compilerOptions: {
-                isCustomElement: tag => tag === 'like-button' || tag === 'video-player'
+                // Tell Vue to treat these as native custom elements (web components)
+                // and not try to resolve them as Vue components
+                isCustomElement: tag => {
+                    return tag === 'my-element' ||
+                           tag === 'like-button' ||
+                           tag === 'video-player';
+                }
             }
         }
     })],

@@ -1,0 +1,295 @@
+/* ============================================================================ */
+/* Web Components Workshop - Angular Styling                                    */
+/* ============================================================================ */
+
+/* Main Container */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ============================================================================ */
+/* Header & Branding                                                            */
+/* ============================================================================ */
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.angular-logo {
+  max-width: 200px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  color: #dd0031;
+  font-size: 2.5rem;
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* ============================================================================ */
+/* Workshop Sections                                                            */
+/* ============================================================================ */
+
+.workshop-section {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
+  border-radius: 12px;
+  border: 2px solid #dd0031;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.workshop-section h2 {
+  color: #dd0031;
+  margin-top: 0;
+  border-bottom: 2px solid #dd0031;
+  padding-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.description {
+  color: #555;
+  line-height: 1.6;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.description code {
+  background: #35495e;
+  color: #dd0031;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+/* ============================================================================ */
+/* Code Notes & Details                                                         */
+/* ============================================================================ */
+
+.code-notes {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-left: 4px solid #dd0031;
+  border-radius: 4px;
+}
+
+.code-notes summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #dd0031;
+  user-select: none;
+  padding: 0.5rem;
+}
+
+.code-notes summary:hover {
+  background: #f0f2f5;
+  border-radius: 4px;
+}
+
+.code-notes ul {
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+
+.code-notes li {
+  margin: 0.5rem 0;
+}
+
+.code-notes code {
+  background: #f0f2f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  color: #e83e8c;
+}
+
+/* ============================================================================ */
+/* Controls & Buttons                                                           */
+/* ============================================================================ */
+
+.controls {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.angular-button {
+  background: linear-gradient(135deg, #dd0031 0%, #c5002e 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.angular-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(221, 0, 49, 0.4);
+}
+
+.angular-button:active {
+  transform: translateY(0);
+}
+
+.status {
+  color: #555;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.status strong {
+  color: #dd0031;
+  font-size: 1.2em;
+}
+
+/* ============================================================================ */
+/* Video Players Layout                                                         */
+/* ============================================================================ */
+
+.video-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.player-wrapper {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.player-wrapper h3 {
+  margin-top: 0;
+  color: #35495e;
+  font-size: 1.2rem;
+}
+
+/* ============================================================================ */
+/* Exercises Section                                                            */
+/* ============================================================================ */
+
+.exercises {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe8cc 100%);
+  border-color: #ff9800;
+}
+
+.exercises h2 {
+  color: #ff9800;
+  border-bottom-color: #ff9800;
+}
+
+.exercises details {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: white;
+  border-left: 4px solid #ff9800;
+  border-radius: 4px;
+}
+
+.exercises summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #ff9800;
+  user-select: none;
+  padding: 0.5rem;
+}
+
+.exercises summary:hover {
+  background: #fff5e6;
+  border-radius: 4px;
+}
+
+.exercises p, .exercises ul, .exercises ol {
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.exercises pre {
+  background: #f5f7fa;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.exercises code {
+  font-family: 'Courier New', monospace;
+  color: #e83e8c;
+}
+
+.exercises table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: white;
+}
+
+.exercises th,
+.exercises td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.exercises th {
+  background: #ff9800;
+  color: white;
+  font-weight: bold;
+}
+
+.exercises tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* ============================================================================ */
+/* Responsive Design                                                            */
+/* ============================================================================ */
+
+@media (max-width: 768px) {
+  .workshop-section {
+    padding: 1rem;
+    margin: 2rem 0;
+  }
+
+  .video-container {
+    grid-template-columns: 1fr;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .angular-button {
+    width: 100%;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+}

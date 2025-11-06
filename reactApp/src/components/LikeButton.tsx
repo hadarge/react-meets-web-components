@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Heart } from 'lucide-react';
 
 interface LikeButtonProps {
@@ -14,6 +14,11 @@ export const LikeButton: React.FC<LikeButtonProps> = ({
                                                }) => {
     const [isLiked, setIsLiked] = useState<boolean>(initialLiked);
     const [count, setCount] = useState<number>(likeCount);
+
+    // Sync count with likeCount prop changes (important for external updates)
+    useEffect(() => {
+        setCount(likeCount);
+    }, [likeCount]);
 
     const handleClick = (): void => {
         const newLikedState: boolean = !isLiked;

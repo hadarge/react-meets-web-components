@@ -16,7 +16,7 @@ function App() {
                 </p>
 
                 <VideoPlayer
-                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                    src="https://www.w3schools.com/html/mov_bbb.mp4"
                     poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg"
                     width={500}
                     height={350}

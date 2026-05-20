@@ -31,7 +31,7 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
                                                             poster,
                                                             width = 800,
                                                             height = 450,
-                                                            autoPlay = true,
+                                                            autoPlay = false,
                                                             muted = false,
                                                             loop = false,
                                                             controls = true,
@@ -68,9 +68,11 @@ export const VideoPlayer: React.FC<VideoPlayerProps> = ({
             setIsPlaying(false);
             onPause?.();
         } else {
-            videoRef.current.play();
+            const playPromise = videoRef.current.play();
             setIsPlaying(true);
             onPlay?.();
+            // Browsers reject play() if autoplay policy blocks it or no source loaded.
+            playPromise?.catch?.(() => setIsPlaying(false));
         }
     };
 

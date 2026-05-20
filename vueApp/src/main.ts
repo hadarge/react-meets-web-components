@@ -25,7 +25,7 @@ import App from './App.vue'
 // NOTE: The web components MUST be imported before the Vue app is created
 // to ensure they're registered before Vue tries to use them.
 
-import '../../reactApp/dist/assets/wcMain.js'
+//import '../../reactApp/dist/assets/wcMain.js'
 
 // ============================================================================
 // STEP 2: Create and Mount Vue App

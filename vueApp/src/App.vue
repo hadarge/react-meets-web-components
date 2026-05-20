@@ -23,8 +23,8 @@ import {ref, onMounted} from "vue";
 // Vue uses ref() for reactive state. When we update these values,
 // the web components will automatically re-render with new attributes.
 
-const link1 = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
-const link2 = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+const link1 = 'https://www.w3schools.com/html/mov_bbb.mp4'
+const link2 = 'https://test-videos.co.uk/vids/sintel/mp4/h264/360/Sintel_360_10s_1MB.mp4'
 
 // Reactive video source - changes will propagate to <video-player>
 const currentLink = ref(link1);
@@ -43,7 +43,7 @@ const activePlayer = ref<'player1' | 'player2' | null>(null);
 const changeSrc = () => {
   currentLink.value = currentLink.value === link1 ? link2 : link1;
   console.log(
-      `%c🔄 VIDEO SWITCH%c Changed video source to: %c${currentLink.value === link1 ? 'Big Buck Bunny' : 'Elephants Dream'}`,
+      `%c🔄 VIDEO SWITCH%c Changed video source to: %c${currentLink.value === link1 ? 'Big Buck Bunny' : 'Sintel'}`,
       'color: #42b883; font-weight: bold;',
       'color: gray;',
       'color: orange; font-weight: bold;'
@@ -266,7 +266,7 @@ onMounted(() => {
             height="300"
             :onPlay.prop="onPlay2"
             :onPause.prop="onPause2"
-            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4">
+            src="https://www.w3schools.com/html/movie.mp4">
         </video-player>
       </div>
     </div>
@@ -276,7 +276,7 @@ onMounted(() => {
         🔄 Switch Player 1 Video
       </button>
       <p class="status">
-        Current: <strong>{{ currentLink === link1 ? 'Big Buck Bunny' : 'Elephants Dream' }}</strong>
+        Current: <strong>{{ currentLink === link1 ? 'Big Buck Bunny' : 'Sintel' }}</strong>
       </p>
     </div>
 

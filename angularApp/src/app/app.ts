@@ -32,8 +32,8 @@ export class App implements AfterViewInit {
   // Angular uses regular class properties for state. When we update these values,
   // we need to manually update the web component attributes/properties.
 
-  protected link1 = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
-  protected link2 = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4';
+  protected link1 = 'https://www.w3schools.com/html/mov_bbb.mp4';
+  protected link2 = 'https://test-videos.co.uk/vids/sintel/mp4/h264/360/Sintel_360_10s_1MB.mp4';
 
   // Current video source - changes will propagate to <video-player>
   protected currentLink = this.link1;
@@ -93,7 +93,7 @@ export class App implements AfterViewInit {
   changeSrc() {
     this.currentLink = this.currentLink === this.link1 ? this.link2 : this.link1;
     console.log(
-      `%c🔄 VIDEO SWITCH%c Changed video source to: %c${this.currentLink === this.link1 ? 'Big Buck Bunny' : 'Elephants Dream'}`,
+      `%c🔄 VIDEO SWITCH%c Changed video source to: %c${this.currentLink === this.link1 ? 'Big Buck Bunny' : 'Sintel'}`,
       'color: #dd0031; font-weight: bold;',
       'color: gray;',
       'color: orange; font-weight: bold;'
